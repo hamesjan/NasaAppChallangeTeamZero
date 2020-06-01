@@ -33,7 +33,8 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body:
+      Container(
         padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -52,11 +53,16 @@ class _LoginState extends State<Login> {
             Hero(
               tag: 'Hero1',
               child:Container(
+                padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                    color: Colors.cyan,
+                    color: Colors.green,
                     borderRadius: BorderRadius.all(Radius.circular(25))
                 ),
-                child: Text('Put Logo Here')
+                child: Image(
+                  image: AssetImage(
+                    'assets/images/nasa_teamphoto1.png'
+                  ),
+                ),
               ),
             ),
             SizedBox(

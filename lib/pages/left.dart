@@ -74,7 +74,7 @@ class _LeftPageState extends State<LeftPage> {
                 color: Colors.yellow,
                ),
             SizedBox(height: 15,),
-            Text('85˚', style: TextStyle(
+            Text('17˚ C', style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 22
             ),),
@@ -95,7 +95,7 @@ class _LeftPageState extends State<LeftPage> {
               children: <Widget>[
                 Icon(Icons.wb_sunny),
                 SizedBox(width: 5,),
-                Text('UV Index: 35')
+                Text('UV Index: 10.28')
               ],
             ),
             Row(
@@ -103,7 +103,7 @@ class _LeftPageState extends State<LeftPage> {
               children: <Widget>[
                 Icon(Icons.invert_colors),
                 SizedBox(width: 5,),
-                Text('Humidity: 35')
+                Text('Humidity: 72')
               ],
             ),
             Row(
@@ -111,7 +111,7 @@ class _LeftPageState extends State<LeftPage> {
               children: <Widget>[
                 Icon(Icons.cloud),
                 SizedBox(width: 5,),
-                Text('Precipitation: 35')
+                Text('Clouds: 1')
               ],
             ),
             Row(
@@ -119,7 +119,7 @@ class _LeftPageState extends State<LeftPage> {
               children: <Widget>[
                 Icon(Icons.cloud_queue),
                 SizedBox(width: 5,),
-                Text('Forecast: 35')
+                Text('Forecast: Clear')
               ],
             ),
             Row(
@@ -127,7 +127,7 @@ class _LeftPageState extends State<LeftPage> {
               children: <Widget>[
                 Icon(Icons.blur_on),
                 SizedBox(width: 5,),
-                Text('Air Quality: 35')
+                Text('Air Quality Index: 32')
               ],
             ),
             Row(
@@ -135,11 +135,10 @@ class _LeftPageState extends State<LeftPage> {
               children: <Widget>[
                 Icon(Icons.local_florist),
                 SizedBox(width: 5,),
-                Text('Pollen Level: 35')
+                Text('Pollen Level: 1013')
               ],
             ),
           ],
-
 
             ),
             ),

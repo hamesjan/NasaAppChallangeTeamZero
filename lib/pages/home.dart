@@ -38,7 +38,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
           child: Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(16)),
-                color: Colors.cyan
+                color: Colors.green
             ),
             child :
 
@@ -46,7 +46,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Icon(Icons.nature_people),
-                Text('HomeScreen', style: TextStyle(
+                Text('OutDoorsy', style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold
                 ),)

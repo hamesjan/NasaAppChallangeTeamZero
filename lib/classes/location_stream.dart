@@ -18,11 +18,8 @@ class LocationServer {
     Timer.periodic(Duration(seconds: 1), (t) async {
       // add the http status code = 200
       Position position = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-      String lat1 = position.latitude.toString().substring(0,);
-      String long1 = position.longitude.toString().substring(0,5);
-      //  var response = await http.get('https://asthmaalert.herokuapp.com/alert?user=$email&lat=$lat1&lon=$long1');
-      //  var response = await http.get('https://asthmaalert.herokuapp.com/alert?user=a@com&lat=42.336509&lon=-71.202483');
-      // String new_txt = buildResponse(response.body.toString());
+        var response = await http.get('https://us-central1-aiot-fit-xlab.cloudfunctions.net/weather');
+
 
       _locationController.add('Latitude: ${position.latitude}\nLongitutde: ${position.longitude}');
     });

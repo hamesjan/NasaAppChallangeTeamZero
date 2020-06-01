@@ -37,6 +37,9 @@ class _LeftPageState extends State<LeftPage> {
               ],
             );
           }
+          else if (snapshot.connectionState == ConnectionState.done){
+            CircularProgressIndicator(backgroundColor: Colors.white,);
+          }
           return  Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
@@ -86,6 +89,14 @@ class _LeftPageState extends State<LeftPage> {
             ),
             SizedBox(
               height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(Icons.wb_sunny),
+                SizedBox(width: 5,),
+                Text('UV Index: 35')
+              ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

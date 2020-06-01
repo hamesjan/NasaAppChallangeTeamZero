@@ -35,6 +35,9 @@ class RightPageState extends State<RightPage> {
 
   String respStr = '';
  // CalorieData CalData = CalorieData(calories: 'Select an Image to get Started', names: ['']);
+  String returnData = '';
+  String returnData2 = '';
+
 
   @override
   Widget build(BuildContext context) {
@@ -52,10 +55,10 @@ class RightPageState extends State<RightPage> {
                     icon: Icon(Icons.camera_alt, size: 50,),
                     callback: () async{
                       var file = await ImagePicker.pickImage(source: ImageSource.camera);
-                      var res = await uploadImage(file.path, "http://37625b93.ngrok.io/caloriecount");
+                      var res = await uploadImage(file.path, "http://292bde44c00c.ngrok.io/file_analysis");
                       respStr = await res.stream.bytesToString();
                       setState(() {
-                        //    CalData = CalorieData.fromJson(jsonDecode(respStr));
+                            returnData = respStr;
                       });
                     },
                   ),
@@ -64,10 +67,10 @@ class RightPageState extends State<RightPage> {
                       icon: Icon(Icons.image, size: 50,),
                       callback: () async {
                         var file = await ImagePicker.pickImage(source: ImageSource.gallery);
-                        var res = await uploadImage(file.path, "http://37625b93.ngrok.io/caloriecount");
+                        var res = await uploadImage(file.path, "http://292bde44c00c.ngrok.io/file_analysis");
                         respStr = await res.stream.bytesToString();
                         setState(() {
-                          //       CalData = CalorieData.fromJson(jsonDecode(respStr));
+                          returnData = respStr;
                         });
                       }
                   ),
@@ -76,12 +79,87 @@ class RightPageState extends State<RightPage> {
               SizedBox(
                 height: 20.0,
               ),
-//            FutureBuilder(
-//              initialData: CalorieData(calories: 'Waiting ',names: ['Waiting']),
-//              future: fetchUserOrder(),
-//              builder: (BuildContext context, AsyncSnapshot snapshot){
-//                List _lst = snapshot.data.names.map((title)=> Text(title,)).toList();
+           Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                        color: Colors.greenAccent,
+                        borderRadius: BorderRadius.all(Radius.circular(25))
+                    ),
+                    child: Column(
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Icon(Icons.local_florist, color: Colors.black,),
+                            SizedBox(width: 15,),
+                            Text('Plant Identifier', style: TextStyle(
+                                fontWeight:FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 25
 
+                            ),)
+
+                          ],
+                        ),
+                        Divider(thickness: 5,),
+                        SizedBox(height: 5,),
+                        Container(
+                          padding: EdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                              color: Colors.redAccent,
+                              borderRadius: BorderRadius.all(Radius.circular(25))
+                          ),
+                          child: Text('Species: $returnData', style: TextStyle(
+                              // ${CalData.calories}', style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.black
+                          ),),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                      ],
+
+                    ),
+                  )
+
+                ],
+
+              ),
+              SizedBox(height: 5,),
+              Divider(thickness: 4,color: Colors.blueAccent,),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Container(width: MediaQuery.of(context).size.width/ 3.5,),
+                  SendButton(
+                    icon: Icon(Icons.camera_alt, size: 50,),
+                    callback: () async{
+                      var file = await ImagePicker.pickImage(source: ImageSource.camera);
+                      var res = await uploadImage(file.path, "http://292bde44c00c.ngrok.io/file_analysis2");
+                      respStr = await res.stream.bytesToString();
+                      setState(() {
+                        returnData2 = respStr;
+                      });
+                    },
+                  ),
+                  SizedBox(width: 15,),
+                  SendButton(
+                      icon: Icon(Icons.image, size: 50,),
+                      callback: () async {
+                        var file = await ImagePicker.pickImage(source: ImageSource.gallery);
+                        var res = await uploadImage(file.path, "http://292bde44c00c.ngrok.io/file_analysis2");
+                        respStr = await res.stream.bytesToString();
+                        setState(() {
+                          returnData2 = respStr;
+                        });
+                      }
+                  ),
+                ],
+              ),
+              SizedBox( height: 15,),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -97,7 +175,7 @@ class RightPageState extends State<RightPage> {
                           children: <Widget>[
                             Icon(Icons.fastfood, color: Colors.black,),
                             SizedBox(width: 15,),
-                            Text('Nature Identifier', style: TextStyle(
+                            Text('Animal Identifier', style: TextStyle(
                                 fontWeight:FontWeight.bold,
                                 color: Colors.black,
                                 fontSize: 25
@@ -107,38 +185,22 @@ class RightPageState extends State<RightPage> {
                           ],
                         ),
                         Divider(thickness: 5,),
+                        SizedBox(height: 5,),
                         Container(
                           padding: EdgeInsets.all(16),
                           decoration: BoxDecoration(
                               color: Colors.redAccent,
                               borderRadius: BorderRadius.all(Radius.circular(25))
                           ),
-                          child: Text('Species:', style: TextStyle(
-                              // ${CalData.calories}', style: TextStyle(
-                              fontSize: 20,
+                          child: Text('Venom Checker: $returnData2', style: TextStyle(
+                            // ${CalData.calories}', style: TextStyle(
+                              fontSize: 12,
                               color: Colors.black
                           ),),
                         ),
                         SizedBox(
-                          height: 25,
+                          height: 10,
                         ),
-                        Container(
-                          padding: EdgeInsets.all(16),
-                          decoration: BoxDecoration(
-                              color: Colors.redAccent,
-                              borderRadius: BorderRadius.all(Radius.circular(25))
-                          ),
-                          child:
-
-                          Text('Foods: '
-                              //'${CalData.names.toString().substring(1, CalData.names.toString().length - 1)}', style: TextStyle(
-                            , style: TextStyle(
-                            fontSize: 28,
-                            //color: Colors.black
-                          ),
-                          ),
-                        )
-
                       ],
 
                     ),
@@ -147,8 +209,6 @@ class RightPageState extends State<RightPage> {
                 ],
 
               )
-//                }
-//                ),
             ],
           ),
         )

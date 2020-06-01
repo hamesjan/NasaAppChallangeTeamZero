@@ -106,7 +106,6 @@ class _LoginState extends State<Login> {
             SizedBox(
               height: 15,
             ),
-
           ],
         ),
       ),
